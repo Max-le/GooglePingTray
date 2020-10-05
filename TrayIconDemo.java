@@ -14,7 +14,7 @@ import javax.swing.*;
 
 class TrayIconDemo {
     public static void main(String[] args) throws InterruptedException, IOException {
-        Image green = createImage("images/bulb.gif", "green icon");
+        Image green = createImage("images/green_dot.gif", "green icon");
         Image red = createImage("images/red_dot.gif", "red icon");
         Image bulb = createImage("images/bulb.gif", "bulb");
         final PopupMenu popup = new PopupMenu();
@@ -26,13 +26,7 @@ class TrayIconDemo {
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
             //UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch (UnsupportedLookAndFeelException ex) {
-            ex.printStackTrace();
-        } catch (IllegalAccessException ex) {
-            ex.printStackTrace();
-        } catch (InstantiationException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
+        } catch (UnsupportedLookAndFeelException | IllegalAccessException | InstantiationException | ClassNotFoundException ex) {
             ex.printStackTrace();
         }
         /* Turn off metal's use of bold fonts */
@@ -63,20 +57,16 @@ class TrayIconDemo {
             System.out.println("TrayIcon could not be added.");
             return;
         }
-        aboutItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("About btn clicked");
-                JOptionPane.showMessageDialog(null,
-                        "This small utility pings www.google.com every second to test yout Internet connection." +
-                                "\nCreated by Max Lepin\nwww.maxle.be");
-            }
+        aboutItem.addActionListener(e -> {
+            System.out.println("About btn clicked");
+            JOptionPane.showMessageDialog(null,
+                    "This small utility pings www.google.com every second to test yout Internet connection." +
+                            "\nCreated by Max Lepin\nwww.maxle.be");
         });
 
-        exitItem.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                tray.remove(trayIcon);
-                System.exit(0);
-            }
+        exitItem.addActionListener(e -> {
+            tray.remove(trayIcon);
+            System.exit(0);
         });
 
         while (true) {
@@ -109,9 +99,7 @@ class TrayIconDemo {
         try {
             InetAddress google = InetAddress.getByName("www.google.com");
             return google.isReachable(1000);
-        } catch (UnknownHostException e){
-            return false;
-        } catch (SocketException e){
+        } catch (UnknownHostException | SocketException e){
             return false;
         }
     }
