@@ -62,6 +62,15 @@ class TrayIconDemo {
             System.out.println("TrayIcon could not be added.");
             return;
         }
+        aboutItem.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("About btn clicked");
+                JOptionPane.showMessageDialog(null,
+                        "This small utility pings www.google.com every second to test yout Internet connection." +
+                                "\nCreated by Max Lepin\nwww.maxle.be");
+            }
+        });
+
         exitItem.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 tray.remove(trayIcon);
@@ -77,8 +86,7 @@ class TrayIconDemo {
             } else {
                 System.out.println("Offline");
                 trayIcon.setImage(red);
-
-            };
+            }
         }
     }
 
