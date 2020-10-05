@@ -14,13 +14,14 @@ import javax.swing.*;
 
 class TrayIconDemo {
     public static void main(String[] args) throws InterruptedException, IOException {
+        Image green = createImage("images/bulb.gif", "green icon");
+        Image red = createImage("images/red_dot.gif", "red icon");
+        Image bulb = createImage("images/bulb.gif", "bulb");
         final PopupMenu popup = new PopupMenu();
-        final TrayIcon trayIcon =
-                new TrayIcon(createImage("images/bulb.gif", "tray icon"));
+        final TrayIcon trayIcon = new TrayIcon(bulb);
         final SystemTray tray = SystemTray.getSystemTray();
         trayIcon.setImageAutoSize(true);
-        Image green = createImage("images/green_dot.gif", "green icon");
-        Image red = createImage("images/red_dot.gif", "red icon");
+
         /* Use an appropriate Look and Feel */
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");

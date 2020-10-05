@@ -6,3 +6,9 @@
 target/
 
 .project
+
+pom.xml
+
+TrayIconApp.jar
+
+*.iml
