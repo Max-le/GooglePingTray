@@ -1,4 +1,4 @@
-Shows an icon in the tray on Windows to display the Internet connection. Internet connection is done by sending a ping to www.google.com every second.
+Shows an icon in the tray on Windows to display the Internet connection. Internet connection is done by sending a ping to some server (www.google.com or other) every second.
 
 ## Work process for this project
 
