@@ -4,12 +4,11 @@
  */
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.URL;
-import java.net.UnknownHostException;
+import java.net.*;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 import javax.swing.*;
 
@@ -62,11 +61,14 @@ class TrayIconDemo {
         // Create a popup menu components
         MenuItem aboutItem = new MenuItem("About");
         MenuItem logItem = new MenuItem("Logs");
+        MenuItem restartItem = new MenuItem("Restart");
         MenuItem exitItem = new MenuItem("Exit");
 
         //Add components to popup menu
         popup.add(aboutItem);
         popup.add(logItem);
+        popup.addSeparator();
+        popup.add(restartItem);
         popup.addSeparator();
         popup.add(exitItem);
 
@@ -79,7 +81,7 @@ class TrayIconDemo {
             return;
         }
         aboutItem.addActionListener(e -> {
-            log("About btn clicked");
+            log("About button clicked");
             JOptionPane.showMessageDialog(null,
                     "This small utility pings "+ADDRESS_PINGED+" every second to test yout Internet connection." +
                             "\nCreated by Max Lepin\nwww.maxle.be");
@@ -87,6 +89,15 @@ class TrayIconDemo {
         logItem.addActionListener(e -> {
             log("Log btn clicked");
             logFrame.setVisible(true);
+        });
+
+        restartItem.addActionListener(e -> {
+            log("Restart button clicked.");
+            try {
+                restartApplication();
+            } catch (IOException | URISyntaxException ioException) {
+                ioException.printStackTrace();
+            }
         });
 
         exitItem.addActionListener(e -> {
@@ -131,6 +142,28 @@ class TrayIconDemo {
         } catch (UnknownHostException | SocketException e){
             return false;
         }
+    }
+
+    /**
+     * https://stackoverflow.com/a/4194224/9275922
+     */
+    public static void restartApplication() throws IOException, URISyntaxException {
+        final String javaBin = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+        final File currentJar = new File(TrayIconDemo.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+
+        /* is it a jar file? */
+        if(!currentJar.getName().endsWith(".jar"))
+            return;
+
+        /* Build command: java -jar application.jar */
+        final ArrayList<String> command = new ArrayList<String>();
+        command.add(javaBin);
+        command.add("-jar");
+        command.add(currentJar.getPath());
+
+        final ProcessBuilder builder = new ProcessBuilder(command);
+        builder.start();
+        System.exit(0);
     }
 
 

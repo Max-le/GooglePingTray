@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
 import java.awt.*;
 
 class JLogFrame extends JFrame {
@@ -11,6 +12,10 @@ class JLogFrame extends JFrame {
         loggingTextArea.setFont(new Font("Serif", Font.BOLD, 16));
         loggingTextArea.setLineWrap(true);
         loggingTextArea.setWrapStyleWord(true);
+
+        DefaultCaret caret = (DefaultCaret)loggingTextArea.getCaret();
+        //Auto scroll to bottom
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 
         JScrollPane scrollPane = new JScrollPane(loggingTextArea);
 
@@ -34,4 +39,6 @@ class JLogFrame extends JFrame {
         loggingTextArea.append(msg+"\n");
         this.getContentPane().validate();
     }
+
+
 }
