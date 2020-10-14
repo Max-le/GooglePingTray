@@ -14,3 +14,5 @@ TrayIconApp.jar
 *.iml
 
 out/
+
+googlepingtray.xml
