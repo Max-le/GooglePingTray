@@ -3,12 +3,12 @@ Shows an icon in the tray on Windows to display the Internet connection. Interne
 ## Work process for this project
 
 1. Improve/edit the source code (`.java` file).
-2. Compile the code :  
-`javac TrayIconDemo.java`. This will generate the class files (the ones with $ need to be included too)
+2. Compile all the classes of the code :  
+`javac TrayIconDemo.java JLogFrame.class`. This will generate the class files (the ones with $ need to be included too)
 
-3. Create the jar : 
+3. Create the jar, containing all compiled classes (`.class` files), images, the manifest : 
 
-`jar -cfmv0 out/app.jar META-INF/MANIFEST.MF TrayIconDemo.class TrayIconDemo$1.class TrayIconDemo$2.class images`
+`jar -cfmv0 out/app.jar META-INF/MANIFEST.MF TrayIconDemo.class JLogFrame.class images`
 
 Links to understand the command above : 
 * https://docs.oracle.com/javase/tutorial/deployment/jar/build.html
