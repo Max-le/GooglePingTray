@@ -4,7 +4,7 @@ Shows an icon in the tray on Windows to display the Internet connection. Interne
 
 1. Improve/edit the source code (`.java` file).
 2. Compile all the classes of the code :  
-`javac TrayIconDemo.java JLogFrame.class`. This will generate the class files (the ones with $ need to be included too)
+`javac TrayIconDemo.java JLogFrame.java`. This will generate the class files (the ones with $ need to be included too)
 
 3. Create the jar, containing all compiled classes (`.class` files), images, the manifest : 
 
