@@ -20,9 +20,9 @@ Links to understand the command above :
 
 When internet connection active (while ping received) :
 
-![demogreen](images\demogreen.gif)
+![demogreen](https://raw.githubusercontent.com/Max-le/GooglePingTray/master/images/demogreen.gif)
 
 When no internet connection (ping from server) :
 
-![demored](images\demored.gif)
+![demored](https://raw.githubusercontent.com/Max-le/GooglePingTray/master/images/demored.gif)
 
