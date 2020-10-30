@@ -13,3 +13,15 @@ Shows an icon in the tray on Windows to display the Internet connection. Interne
 Links to understand the command above : 
 * https://docs.oracle.com/javase/tutorial/deployment/jar/build.html
 * https://docs.oracle.com/javase/tutorial/deployment/jar/appman.html
+
+
+
+## Demo 
+
+When internet connection active (while ping received) :
+
+![demogreen](images\demogreen.gif)
+
+When no internet connection (ping ping from server) :
+
+![demored](images\demored.gif)
