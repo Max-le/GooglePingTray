@@ -22,6 +22,7 @@ When internet connection active (while ping received) :
 
 ![demogreen](images\demogreen.gif)
 
-When no internet connection (ping ping from server) :
+When no internet connection (ping from server) :
 
 ![demored](images\demored.gif)
+
