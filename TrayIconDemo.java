@@ -83,7 +83,7 @@ class TrayIconDemo {
         aboutItem.addActionListener(e -> {
             log("About button clicked");
             JOptionPane.showMessageDialog(null,
-                    "This small utility pings "+ADDRESS_PINGED+" every second to test yout Internet connection." +
+                    "This small utility pings "+ADDRESS_PINGED+" every second to test your Internet connection." +
                             "\nCreated by Max Lepin\nwww.maxle.be");
         });
         logItem.addActionListener(e -> {
